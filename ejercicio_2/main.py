@@ -1,34 +1,15 @@
-"""EJERCICIO 02 — Módulos e integración
+from datos import PRODUCTOS
+from operaciones import generar_reporte
 
-Organiza la aplicación en tres módulos de esta carpeta:
-- datos.py: contiene PRODUCTOS (ya entregado).
-- operaciones.py: implementa generar_reporte siguiendo su enunciado.
-- main.py: importa los datos y la función, y muestra los resultados con print.
-No copies los datos ni la función dentro de este archivo.
-No importes archivos de otros ejercicios.
+# Líneas descomentadas para mostrar los resultados de los datos base
+print(generar_reporte(PRODUCTOS))
+print(generar_reporte([]))
 
-Con PRODUCTOS, el reporte esperado es:
-{"disponibles": ["cafe", "torta", "pan"],
- "valor_total": 180,
- "hay_agotados": True,
- "categorias": {"bebida", "postre", "comida"},
- "precios_con_recargo": [("cafe", 11.0), ("torta", 27.5), ("pan", 5.5)]}
-El orden de los elementos del set puede cambiar.
-
-Con [] se espera:
-{"disponibles": [], "valor_total": 0, "hay_agotados": False,
- "categorias": set(), "precios_con_recargo": []}
-
-Ejecuta desde la raíz: python ejercicio_2/main.py
-Añade otro ejemplo con print y su resultado esperado en un comentario.
-Haz un commit: "Resuelve ejercicio 2".
-"""
-
-# TODO: importa PRODUCTOS desde datos.
-# TODO: importa generar_reporte desde operaciones.
-
-# TODO: una vez completadas las importaciones, descomenta estas líneas.
-# print(generar_reporte(PRODUCTOS))
-# print(generar_reporte([]))
-
-# TODO: añade otro ejemplo con print y su resultado esperado en un comentario.
+# Ejemplo adicional con print y su resultado esperado en un comentario
+PRODUCTOS_EXTRA = [
+    {"nombre": "jugo", "precio": 4, "stock": 10, "categoria": "bebida"},
+    {"nombre": "empanada", "precio": 3, "stock": 0, "categoria": "comida"}
+]
+print(generar_reporte(PRODUCTOS_EXTRA))
+# Resultado esperado:
+# {'disponibles': ['jugo'], 'valor_total': 40, 'hay_agotados': True, 'categorias': {'comida', 'bebida'}, 'precios_con_recargo': [('jugo', 4.4)]}
